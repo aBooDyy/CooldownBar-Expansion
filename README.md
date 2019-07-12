@@ -12,36 +12,36 @@ The default placeholder is `%cooldownbar_{placeholder}%` where `{placeholder}` c
 that returns `Xd`, `Xh`, `Xm`, `Xs`.
 
 ### `p:`
-> **Requires**: `TEXT`
-> **Default (Config option)**: `&a|` (`passed`)
+> **Requires**: `TEXT` <br />
+> **Default (Config option)**: `&a|` (`passed`) <br />
 > **Example**: `%cooldownbar_{essentials_kit_time_until_available_tools}_p:&a■%`
 
 Sets the symbol/text that is used for already passed time.
 
 ### `r:`
-> **Requires**: `TEXT`
-> **Default (Config option)**: `&7|` (`remaining`)
+> **Requires**: `TEXT` <br />
+> **Default (Config option)**: `&7|` (`remaining`) <br />
 > **Example**: `%cooldownbar_{essentials_kit_time_until_available_tools}_r:&7■%`
 
 Sets the symbol/text that is used for the remaining time.
 
 ### `l:`
-> **Requires**: `NUMBER`
-> **Default (Config option)**: `10` (`length`)
+> **Requires**: `NUMBER` <br />
+> **Default (Config option)**: `10` (`length`) <br />
 > **Example**: `%cooldownbar_{essentials_kit_time_until_available_tools}_l:5%`
 
 Sets the maximum length of the cooldown bar. This also affects the bar itself.
 
 ### `c:`
-> **Requires**: `NUMBER`
-> **Default (Config option)**: `100` (`cooldown`)
+> **Requires**: `NUMBER` <br />
+> **Default (Config option)**: `100` (`cooldown`) <br />
 > **Example**: `%cooldownbar_{essentials_kit_time_until_available_tools}_c:10%`
 
 Sets the main cooldown (cooldown at the beginning). This affects the bar itself.
 
 ### `rdy:`
-> **Requires**: `TEXT`
-> **Default (Config option)**: `&aReady!` (`ready`)
+> **Requires**: `TEXT` <br />
+> **Default (Config option)**: `&aReady!` (`ready`) <br />
 > **Example**: `%cooldownbar_{essentials_kit_time_until_available_tools}_rdy:&aClaim now!%`
 
 Sets the text that is shown when the cooldown has passed out (reached the set cooldown value `c:`).
