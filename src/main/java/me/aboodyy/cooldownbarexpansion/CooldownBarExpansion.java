@@ -98,7 +98,8 @@ public class CooldownBarExpansion extends PlaceholderExpansion implements Config
                 }
             }
 
-            percentage = ((cooldown - placeholder) / cooldown) * 100;
+            percentage = cooldown - placeholder;
+            percentage = (percentage / cooldown) * 100;
             DecimalFormat format = new DecimalFormat(f.toString());
 
             return format.format(percentage);
