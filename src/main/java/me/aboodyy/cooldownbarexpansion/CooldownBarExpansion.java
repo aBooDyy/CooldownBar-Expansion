@@ -113,7 +113,7 @@ public class CooldownBarExpansion extends PlaceholderExpansion implements Config
             if (argument.equals(args[0])) continue;
             String[] arg = argument.split(":");
 
-            switch (arg[0]) {
+            switch (arg[0].toLowerCase()) {
                 case "ready":
                 case "rdy":
                     ready = arg[1];
@@ -121,6 +121,10 @@ public class CooldownBarExpansion extends PlaceholderExpansion implements Config
                 case "remaining":
                 case "r":
                     remainingSym = arg[1];
+                    break;
+                case "inprogress":
+                case "i":
+                    inProgress = arg[1];
                     break;
                 case "passed":
                 case "p":
@@ -133,8 +137,10 @@ public class CooldownBarExpansion extends PlaceholderExpansion implements Config
                     break;
                 case "cooldown":
                 case "c":
-                    if (NumberUtils.isNumber(arg[1]))
-                        cooldown = Integer.parseInt(arg[1]);
+                    if (!NumberUtils.isNumber(arg[1]) && convertToSec(arg[1]) == 0) continue;
+
+                    if (NumberUtils.isNumber(arg[1])) cooldown = Integer.parseInt(arg[1]);
+                    else cooldown = convertToSec(arg[1]);
             }
         }
 
@@ -142,12 +148,18 @@ public class CooldownBarExpansion extends PlaceholderExpansion implements Config
 
         StringBuilder bar = new StringBuilder();
 
-        secPerSymbol = (double) cooldown / length; // 1
-        remaining = (int) Math.floor(placeholder / secPerSymbol); // 5
+        secPerSymbol = (double) cooldown / length;
+        remaining = (int) Math.floor(placeholder / secPerSymbol);
         passed = length - remaining;
+
+        if (passed == length) passed--;
 
         while (barLength < passed) {
             bar.append(passedSym);
+            barLength++;
+        }
+        if (barLength != length) {
+            bar.append(inProgress);
             barLength++;
         }
         while (barLength < length) {
