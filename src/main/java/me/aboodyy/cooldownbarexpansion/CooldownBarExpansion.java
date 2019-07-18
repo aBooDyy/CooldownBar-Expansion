@@ -59,7 +59,6 @@ public class CooldownBarExpansion extends PlaceholderExpansion implements Config
         remainingSym = this.getString("remaining", "&7|");
         decimal = this.getInt("decimal", 2);
 
-        identifier = PlaceholderAPI.setPlaceholders(p, identifier);
         identifier = PlaceholderAPI.setBracketPlaceholders(p, identifier);
         String[] args = identifier.split("_");
 
